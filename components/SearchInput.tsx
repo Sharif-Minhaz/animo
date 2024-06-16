@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { router, usePathname } from "expo-router";
-import { View, TouchableOpacity, Image, TextInput, Alert } from "react-native";
+import { View, TouchableOpacity, Image, TextInput, Alert, ImageSourcePropType } from "react-native";
+import search from "../assets/images/search.png";
 
-import { icons } from "../constants";
-
-const SearchInput = ({ initialQuery }) => {
+const SearchInput = ({ initialQuery }: { initialQuery: string }) => {
 	const pathname = usePathname();
 	const [query, setQuery] = useState(initialQuery || "");
 
@@ -13,7 +12,7 @@ const SearchInput = ({ initialQuery }) => {
 			<TextInput
 				className="text-base mt-0.5 text-white flex-1 font-pregular"
 				value={query}
-				placeholder="Search a video topic"
+				placeholder="Search an Animal"
 				placeholderTextColor="#CDCDE0"
 				onChangeText={(e) => setQuery(e)}
 			/>
@@ -30,7 +29,11 @@ const SearchInput = ({ initialQuery }) => {
 					else router.push(`/search/${query}`);
 				}}
 			>
-				<Image source={icons.search} className="w-5 h-5" resizeMode="contain" />
+				<Image
+					source={search as ImageSourcePropType}
+					className="w-5 h-5"
+					resizeMode="contain"
+				/>
 			</TouchableOpacity>
 		</View>
 	);

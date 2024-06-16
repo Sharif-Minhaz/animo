@@ -3,6 +3,8 @@ import { StatusBar } from "expo-status-bar";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 
 const TabsLayout = () => {
+	const isAdmin = true;
+
 	return (
 		<>
 			<Tabs
@@ -46,6 +48,7 @@ const TabsLayout = () => {
 								name={focused ? "add-circle" : "add-circle-outline"}
 								color={color}
 								iconText="Create"
+								focused={focused}
 							/>
 						),
 					}}
@@ -62,6 +65,7 @@ const TabsLayout = () => {
 								name={focused ? "bookmark" : "bookmark-outline"}
 								color={color}
 								iconText="Saved"
+								focused={focused}
 							/>
 						),
 					}}
@@ -78,29 +82,35 @@ const TabsLayout = () => {
 								style={{ color: color }}
 								name={focused ? "person-circle" : "person-circle-outline"}
 								color={color}
+								focused={focused}
 							/>
 						),
 					}}
 				/>
-				<Tabs.Screen
-					name="admin"
-					options={{
-						title: "Admin",
-						headerShown: false,
-						tabBarIcon: ({ color, focused }) => (
-							<TabBarIcon
-								iconText="Admin"
-								style={{ color: color }}
-								name={focused ? "bar-chart" : "bar-chart-outline"}
-								color={color}
-							/>
-						),
-					}}
-				/>
+
+				{isAdmin && (
+					<Tabs.Screen
+						name="admin"
+						options={{
+							title: "Admin",
+							headerShown: false,
+							tabBarIcon: ({ color, focused }) => (
+								<TabBarIcon
+									iconText="Admin"
+									style={{ color: color }}
+									name={focused ? "bar-chart" : "bar-chart-outline"}
+									color={color}
+									focused={focused}
+								/>
+							),
+						}}
+					/>
+				)}
 			</Tabs>
 
 			<StatusBar backgroundColor="#161622" style="light" />
 		</>
 	);
 };
+
 export default TabsLayout;

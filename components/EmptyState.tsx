@@ -1,13 +1,17 @@
 import { router } from "expo-router";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ImageSourcePropType } from "react-native";
 
-import { images } from "../constants";
+import { notFound } from "../constants/Images";
 import CustomButton from "./CustomButton";
 
-const EmptyState = ({ title, subtitle }) => {
+const EmptyState = ({ title, subtitle }: { title: string; subtitle: string }) => {
 	return (
 		<View className="flex justify-center items-center px-4">
-			<Image source={images.empty} resizeMode="contain" className="w-[270px] h-[216px]" />
+			<Image
+				source={notFound as ImageSourcePropType}
+				resizeMode="contain"
+				className="w-[270px] h-[216px]"
+			/>
 
 			<Text className="text-sm font-pmedium text-gray-100">{title}</Text>
 			<Text className="text-xl text-center font-psemibold text-white mt-2">{subtitle}</Text>

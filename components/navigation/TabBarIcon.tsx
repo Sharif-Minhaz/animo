@@ -22,8 +22,8 @@ export function TabBarIcon({
 		<View className="justify-center items-center gap-2">
 			<Ionicons
 				style={style}
-				className={cn("object-contain w-5 h-5", className)}
-				size={22}
+				className={cn("object-contain w-6 h-6", className)}
+				size={20}
 				{...rest}
 			/>
 			<Text
