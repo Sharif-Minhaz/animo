@@ -39,7 +39,7 @@ export default function App() {
 
 					<CustomButton
 						title="Continue with Google"
-						handlePress={() => router.push("/")}
+						handlePress={() => router.push("/home")}
 						containerStyles="w-full mt-7"
 					/>
 				</View>
