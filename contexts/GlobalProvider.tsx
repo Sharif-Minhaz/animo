@@ -23,7 +23,11 @@ export const useGlobalContext = (): GlobalContextProps => {
 const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	const [isAdmin, setIsAdmin] = useState(false);
 	const [isLogged, setIsLogged] = useState(false);
-	const [user, setUser] = useState(null);
+	const [user, setUser] = useState({
+		username: "Minhaz",
+		photoURL: "https://randomuser.me/api/portraits/men/9.jpg",
+		email: "minhaz@gmail.com",
+	});
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
