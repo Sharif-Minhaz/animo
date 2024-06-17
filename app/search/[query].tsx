@@ -54,6 +54,7 @@ const Search = () => {
 					/>
 				)}
 			/> */}
+			<Text className="text-white">Hello</Text>
 		</SafeAreaView>
 	);
 };

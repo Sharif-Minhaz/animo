@@ -1,6 +1,7 @@
-import { View, Text, Image, ImageSourcePropType } from "react-native";
+import { View, Text, Image, ImageSourcePropType, TouchableOpacity } from "react-native";
 import menu from "../assets/images/menu.png";
-import cow from "../assets/images/cow.jpeg";
+import { readableNumber } from "@/lib/utils";
+import { useRouter } from "expo-router";
 
 export interface IAnimal {
 	id: number;
@@ -11,6 +12,7 @@ export interface IAnimal {
 	ownerName: string;
 	ownerPhoto: string;
 	createdAt: string;
+	weight?: number;
 }
 
 const AnimalCard = ({
@@ -21,10 +23,13 @@ const AnimalCard = ({
 	price,
 	ownerName,
 	ownerPhoto,
+	weight,
 	createdAt,
 }: IAnimal) => {
+	const router = useRouter();
+
 	return (
-		<View className="flex flex-col items-center px-4 mb-14">
+		<View className="flex flex-col items-center px-4 mb-28">
 			<View className="flex flex-row gap-3 items-start">
 				<View className="flex justify-center items-center flex-row flex-1">
 					<View className="w-[46px] h-[46px] rounded-lg border border-secondary flex justify-center items-center p-0.5">
@@ -53,13 +58,30 @@ const AnimalCard = ({
 					/>
 				</View>
 			</View>
-			<View className="mt-2 flex-1">
+			<TouchableOpacity
+				className="mt-3.5 flex-1 h-[200px] w-full"
+				onPress={() => router.push(`/${id}`)}
+				activeOpacity={0.7}
+			>
 				<Image
-					source={cow as ImageSourcePropType}
-					className="w-[300px]"
-					resizeMode="contain"
+					source={{ uri: image }}
+					height={100}
+					className="rounded-t"
+					style={{ height: "100%", width: "100%" }}
+					resizeMode="cover"
 				/>
-			</View>
+				<View className="border border-[#646464] border-t-0 p-3 rounded-b-md bg-[#1b2129]">
+					<Text className="text-secondary font-semibold text-[20px]">{name}</Text>
+					<View className="flex-row gap-x-5 mt-2">
+						<Text className="text-gray-100 text-[16px]">
+							<Text className="font-semibold">Weight:</Text> {weight} kg
+						</Text>
+						<Text className="text-gray-100 text-[16px]">
+							<Text className="font-semibold">Price:</Text> {readableNumber(price)} tk
+						</Text>
+					</View>
+				</View>
+			</TouchableOpacity>
 		</View>
 	);
 };

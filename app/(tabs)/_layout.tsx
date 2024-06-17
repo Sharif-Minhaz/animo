@@ -1,9 +1,10 @@
 import { Tabs } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
+import { useGlobalContext } from "@/contexts/GlobalProvider";
 
 const TabsLayout = () => {
-	const isAdmin = true;
+	const { isAdmin } = useGlobalContext();
 
 	return (
 		<>
@@ -34,6 +35,14 @@ const TabsLayout = () => {
 								focused={focused}
 							/>
 						),
+					}}
+				/>
+
+				<Tabs.Screen
+					name="[animalId]"
+					options={{
+						href: null,
+						headerShown: false,
 					}}
 				/>
 
@@ -88,24 +97,23 @@ const TabsLayout = () => {
 					}}
 				/>
 
-				{isAdmin && (
-					<Tabs.Screen
-						name="admin"
-						options={{
-							title: "Admin",
-							headerShown: false,
-							tabBarIcon: ({ color, focused }) => (
-								<TabBarIcon
-									iconText="Admin"
-									style={{ color: color }}
-									name={focused ? "bar-chart" : "bar-chart-outline"}
-									color={color}
-									focused={focused}
-								/>
-							),
-						}}
-					/>
-				)}
+				<Tabs.Screen
+					name="admin"
+					options={{
+						title: "Admin",
+						headerShown: false,
+						href: isAdmin ? undefined : null,
+						tabBarIcon: ({ color, focused }) => (
+							<TabBarIcon
+								iconText="Admin"
+								style={{ color: color }}
+								name={focused ? "bar-chart" : "bar-chart-outline"}
+								color={color}
+								focused={focused}
+							/>
+						),
+					}}
+				/>
 			</Tabs>
 
 			<StatusBar backgroundColor="#161622" style="light" />

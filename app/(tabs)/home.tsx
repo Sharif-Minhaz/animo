@@ -26,6 +26,7 @@ const Home = () => {
 							ownerName={item.ownerName}
 							ownerPhoto={item.ownerPhoto}
 							createdAt={item.createdAt}
+							weight={item.weight}
 						/>
 					);
 				}}
@@ -54,7 +55,7 @@ const Home = () => {
 						<SearchInput initialQuery={""} />
 						<View className="w-full flex-1 pt-5 pb-8">
 							<Text className="text-lg font-pregular text-gray-100 mb-3">
-								Latest Videos
+								Latest Sells
 							</Text>
 
 							<Trending animals={animals ?? []} />

@@ -3,7 +3,6 @@ import {
 	FlatList,
 	Image,
 	ImageBackground,
-	ImageSourcePropType,
 	ImageStyle,
 	TextStyle,
 	TouchableOpacity,
@@ -12,7 +11,6 @@ import {
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { IAnimal } from "./AnimalCard";
-import cow from "../assets/images/cow.jpeg";
 
 const zoomIn = {
 	0: {
@@ -53,7 +51,7 @@ const TrendingItem = ({ activeItem, item }: IProps) => {
 				activeOpacity={0.7}
 			>
 				<ImageBackground
-					source={cow as ImageSourcePropType}
+					source={{ uri: item.image }}
 					className="w-52 h-72 rounded-[33px] my-5 overflow-hidden shadow-lg shadow-black/40"
 					resizeMode="cover"
 				/>

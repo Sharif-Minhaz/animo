@@ -1,8 +1,9 @@
 export const animals = [
 	{
 		id: 1,
-		name: "Red CR",
-		description: "Perfect shape and overall fit",
+		name: "Red CR Rana",
+		description:
+			"Perfect shape and overall fit, Perfect shape and overall fit, Perfect shape and overall fit, Perfect shape and overall fit.",
 		image: "https://res.cloudinary.com/hostingimagesservice/image/upload/v1718551370/cow-354428_1280_ky6m3a.jpg",
 		price: 125000,
 		ownerName: "Minhaz",
@@ -11,11 +12,15 @@ export const animals = [
 		family: "High breed",
 		type: "Cow",
 		height: 1.4732,
+		weight: 200,
+		location: "Mathbaria",
+		gender: "Male",
 	},
 	{
 		id: 2,
-		name: "Red CR",
-		description: "Perfect shape and overall fit",
+		name: "Red CR Rana",
+		description:
+			"Perfect shape and overall fit, Perfect shape and overall fit, Perfect shape and overall fit, Perfect shape and overall fit.",
 		image: "https://res.cloudinary.com/hostingimagesservice/image/upload/v1718551370/cow-354428_1280_ky6m3a.jpg",
 		price: 125000,
 		ownerName: "Minhaz",
@@ -24,11 +29,15 @@ export const animals = [
 		family: "High breed",
 		type: "Cow",
 		height: 1.4732, // (meter)
+		weight: 200,
+		location: "Mathbaria",
+		gender: "Male",
 	},
 	{
 		family: "High breed",
-		name: "Red CR",
-		description: "Perfect shape and overall fit",
+		name: "Red CR Rana",
+		description:
+			"Perfect shape and overall fit, Perfect shape and overall fit, Perfect shape and overall fit, Perfect shape and overall fit.",
 		image: "https://res.cloudinary.com/hostingimagesservice/image/upload/v1718551370/cow-354428_1280_ky6m3a.jpg",
 		price: 125000,
 		ownerName: "Minhaz",
@@ -37,11 +46,15 @@ export const animals = [
 		id: 3,
 		type: "Cow",
 		height: 1.4732,
+		weight: 200,
+		location: "Mathbaria",
+		gender: "Male",
 	},
 	{
 		id: 4,
-		name: "Red CR",
-		description: "Perfect shape and overall fit",
+		name: "Red CR Rana",
+		description:
+			"Perfect shape and overall fit, Perfect shape and overall fit, Perfect shape and overall fit, Perfect shape and overall fit.",
 		image: "https://res.cloudinary.com/hostingimagesservice/image/upload/v1718551370/cow-354428_1280_ky6m3a.jpg",
 		price: 125000,
 		ownerName: "Minhaz",
@@ -50,11 +63,15 @@ export const animals = [
 		family: "High breed",
 		type: "Cow",
 		height: 1.4732,
+		weight: 200,
+		location: "Mathbaria",
+		gender: "Male",
 	},
 	{
 		id: 8,
-		name: "Red CR",
-		description: "Perfect shape and overall fit",
+		name: "Red CR Rana",
+		description:
+			"Perfect shape and overall fit, Perfect shape and overall fit, Perfect shape and overall fit, Perfect shape and overall fit.",
 		image: "https://res.cloudinary.com/hostingimagesservice/image/upload/v1718551370/cow-354428_1280_ky6m3a.jpg",
 		price: 125000,
 		ownerName: "Minhaz",
@@ -63,5 +80,8 @@ export const animals = [
 		family: "High breed",
 		type: "Cow",
 		height: 1.4732,
+		weight: 200,
+		location: "Mathbaria",
+		gender: "Male",
 	},
 ];

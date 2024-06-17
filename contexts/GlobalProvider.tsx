@@ -3,6 +3,7 @@ import { ReactNode, createContext, useContext, useEffect, useState } from "react
 // import { getCurrentUser } from "../lib/appwrite";
 
 interface GlobalContextProps {
+	isAdmin: boolean;
 	isLogged: boolean;
 	setIsLogged: (isLogged: boolean) => void;
 	user: any;
@@ -20,6 +21,7 @@ export const useGlobalContext = (): GlobalContextProps => {
 };
 
 const GlobalProvider = ({ children }: { children: ReactNode }) => {
+	const [isAdmin, setIsAdmin] = useState(false);
 	const [isLogged, setIsLogged] = useState(false);
 	const [user, setUser] = useState(null);
 	const [loading, setLoading] = useState(true);
@@ -44,7 +46,7 @@ const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	}, []);
 
 	return (
-		<GlobalContext.Provider value={{ isLogged, setIsLogged, user, setUser, loading }}>
+		<GlobalContext.Provider value={{ isLogged, isAdmin, setIsLogged, user, setUser, loading }}>
 			{children}
 		</GlobalContext.Provider>
 	);
