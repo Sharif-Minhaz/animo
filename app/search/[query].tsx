@@ -49,8 +49,8 @@ const Search = () => {
 				)}
 				ListEmptyComponent={() => (
 					<EmptyState
-						title="No Videos Found"
-						subtitle="No videos found for this search query"
+						title="No Animals Found"
+						subtitle="No Animals found for this search query"
 					/>
 				)}
 			/> */}

@@ -7,9 +7,10 @@ import EmptyState from "@/components/EmptyState";
 import SearchInput from "@/components/SearchInput";
 import Trending from "@/components/Trending";
 import { FlatList } from "react-native";
+import { useGlobalContext } from "@/contexts/GlobalProvider";
 
 const Home = () => {
-	const user = { username: "Minhaz" };
+	const { user } = useGlobalContext();
 
 	return (
 		<SafeAreaView className="bg-primary h-full">
@@ -63,7 +64,7 @@ const Home = () => {
 					</View>
 				)}
 				ListEmptyComponent={() => (
-					<EmptyState title="No Videos Found" subtitle="No videos created yet" />
+					<EmptyState title="No Animals Found" subtitle="No Animals created yet" />
 				)}
 				refreshControl={<RefreshControl refreshing={false} onRefresh={() => {}} />}
 			/>

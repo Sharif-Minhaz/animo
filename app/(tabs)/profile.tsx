@@ -38,8 +38,8 @@ const Profile = () => {
 				)}
 				ListEmptyComponent={() => (
 					<EmptyState
-						title="No Videos Found"
-						subtitle="No videos found for this profile"
+						title="No Animals Found"
+						subtitle="No Animals found for this profile"
 					/>
 				)}
 				ListHeaderComponent={() => (
@@ -70,7 +70,7 @@ const Profile = () => {
 						<View className="mt-5 flex flex-row">
 							<InfoBox
 								title={animals.length?.toString() || "0"}
-								subtitle="Sell"
+								subtitle="Sells"
 								titleStyles="text-xl"
 								containerStyles="mr-10"
 							/>
