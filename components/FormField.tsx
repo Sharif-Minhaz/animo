@@ -1,12 +1,13 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, KeyboardTypeOptions } from "react-native";
 
 interface IProps {
 	title: string;
 	value: string;
 	placeholder: string;
-	handleChangeText: () => void;
+	handleChangeText: (e: any) => void;
 	otherStyles?: string;
 	multiline?: boolean;
+	keyboardType?: string;
 }
 
 const FormField = ({
@@ -16,6 +17,7 @@ const FormField = ({
 	handleChangeText,
 	otherStyles,
 	multiline,
+	keyboardType,
 	...props
 }: IProps) => {
 	return (
@@ -28,12 +30,13 @@ const FormField = ({
 				} px-4 bg-black-100 rounded-2xl border-2 border-black-200 focus:border-secondary flex flex-row`}
 			>
 				<TextInput
-					multiline
+					multiline={multiline}
 					className="flex-1 text-white font-psemibold text-base h-full"
 					value={value}
 					placeholder={placeholder}
 					placeholderTextColor="#7B7B8B"
 					onChangeText={handleChangeText}
+					keyboardType={keyboardType ? (keyboardType as KeyboardTypeOptions) : "default"}
 					{...props}
 				/>
 			</View>

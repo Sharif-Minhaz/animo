@@ -4,13 +4,17 @@ import {
 	Image,
 	ImageBackground,
 	ImageStyle,
+	StyleSheet,
+	Text,
 	TextStyle,
 	TouchableOpacity,
+	View,
 	ViewStyle,
 	ViewToken,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { IAnimal } from "./AnimalCard";
+import { useRouter } from "expo-router";
 
 const zoomIn = {
 	0: {
@@ -36,6 +40,8 @@ interface IProps {
 }
 
 const TrendingItem = ({ activeItem, item }: IProps) => {
+	const router = useRouter();
+
 	return (
 		<Animatable.View
 			className="mr-5"
@@ -47,6 +53,7 @@ const TrendingItem = ({ activeItem, item }: IProps) => {
 			duration={500}
 		>
 			<TouchableOpacity
+				onPress={() => router.push(`/${item.id}`)}
 				className="relative flex justify-center items-center"
 				activeOpacity={0.7}
 			>
@@ -54,7 +61,11 @@ const TrendingItem = ({ activeItem, item }: IProps) => {
 					source={{ uri: item.image }}
 					className="w-52 h-72 rounded-[33px] my-5 overflow-hidden shadow-lg shadow-black/40"
 					resizeMode="cover"
-				/>
+				>
+					<View className="" style={styles.trapezoid}>
+						<Text>{item.price}</Text>
+					</View>
+				</ImageBackground>
 			</TouchableOpacity>
 		</Animatable.View>
 	);
@@ -87,4 +98,18 @@ const Trending = ({ animals }: { animals: IAnimal[] }) => {
 		/>
 	);
 };
+
+const styles = StyleSheet.create({
+	trapezoid: {
+		borderBottomWidth: 20,
+		borderBottomColor: "#555",
+		borderLeftWidth: 10,
+		borderLeftColor: "transparent",
+		borderRightWidth: 10,
+		borderRightColor: "transparent",
+		borderStyle: "solid",
+		width: 100,
+	},
+});
+
 export default Trending;
