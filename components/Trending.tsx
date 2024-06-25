@@ -1,10 +1,8 @@
 import { useState } from "react";
 import {
 	FlatList,
-	Image,
 	ImageBackground,
 	ImageStyle,
-	StyleSheet,
 	Text,
 	TextStyle,
 	TouchableOpacity,
@@ -15,6 +13,7 @@ import {
 import * as Animatable from "react-native-animatable";
 import { IAnimal } from "./AnimalCard";
 import { useRouter } from "expo-router";
+import { readableNumber } from "@/lib/utils";
 
 const zoomIn = {
 	0: {
@@ -59,11 +58,15 @@ const TrendingItem = ({ activeItem, item }: IProps) => {
 			>
 				<ImageBackground
 					source={{ uri: item.image }}
-					className="w-52 h-72 rounded-[33px] my-5 overflow-hidden shadow-lg shadow-black/40"
+					className="w-52 h-72 overflow-hidden rounded-[33px] my-5 shadow-lg shadow-black/40"
 					resizeMode="cover"
 				>
-					<View className="" style={styles.trapezoid}>
-						<Text>{item.price}</Text>
+					<View className="relative">
+						<View className="absolute bg-[#FF9001] rotate-45 w-[180px] top-[18px] -right-[50px]">
+							<Text className="flex items-center text-center px-2 py-2 justify-center">
+								{readableNumber(item.price)} ৳
+							</Text>
+						</View>
 					</View>
 				</ImageBackground>
 			</TouchableOpacity>
@@ -76,7 +79,7 @@ const Trending = ({ animals }: { animals: IAnimal[] }) => {
 
 	const viewableItemsChanged = ({ viewableItems }: { viewableItems: ViewToken<IAnimal>[] }) => {
 		if (viewableItems.length > 0) {
-			setActiveItem(viewableItems[0]?.index!);
+			setActiveItem(viewableItems[0]?.item.id!);
 		}
 	};
 
@@ -98,18 +101,5 @@ const Trending = ({ animals }: { animals: IAnimal[] }) => {
 		/>
 	);
 };
-
-const styles = StyleSheet.create({
-	trapezoid: {
-		borderBottomWidth: 20,
-		borderBottomColor: "#555",
-		borderLeftWidth: 10,
-		borderLeftColor: "transparent",
-		borderRightWidth: 10,
-		borderRightColor: "transparent",
-		borderStyle: "solid",
-		width: 100,
-	},
-});
 
 export default Trending;
